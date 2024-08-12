@@ -20,8 +20,8 @@ app.use(morgan("dev"));
 app.use(helmet());
 app.use(
   cors({
-    origin: (origin, cb) => cb(null, true),
-    credentials: true,
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
   })
 );
 app.use(cookieParser());
