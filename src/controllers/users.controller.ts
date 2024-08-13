@@ -139,11 +139,11 @@ const userController = {
           .json({ msg: "The email/password you entered is incorrect." });
 
       const refresh_token = createRefreshToken({ id: user._id });
-      // res.cookie("refreshtoken", refresh_token, {
-      //   httpOnly: true,
-      //   path: "/api/users/refresh_token",
-      //   maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-      // });
+      res.cookie("refresh_token", refresh_token, {
+        httpOnly: true,
+        path: "/api/users/refresh_token",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      });
 
       res.json({ msg: "Login success!", refresh_token: refresh_token });
     } catch (err: any) {
